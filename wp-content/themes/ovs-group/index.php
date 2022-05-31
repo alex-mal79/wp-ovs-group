@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Главная ОВС-ГРУПП</title>
-    <link rel="stylesheet" href="assets/css/swiper.min.css?_v=20220531123418">
-    <link rel="stylesheet" href="style.css?_v=20220531123418">
-    <script defer src="assets/js/swiper.min.js?_v=20220531123418"></script>
-    <script defer src="assets/js/app.min.js?_v=20220531123418"></script>
-    <script defer src="assets/js/main.min.js?_v=20220531123418"></script>
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri();?>/assets/css/swiper.min.css?_v=20220531123418">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri();?>/style.css?_v=20220531123418">
+    <script defer src="<?php echo get_template_directory_uri();?>/assets/js/swiper.min.js?_v=20220531123418"></script>
+    <script defer src="<?php echo get_template_directory_uri();?>/assets/js/app.min.js?_v=20220531123418"></script>
+    <script defer src="<?php echo get_template_directory_uri();?>/assets/js/main.min.js?_v=20220531123418"></script>
 </head>
 <body class="page__body">
     <div class="site-container">
@@ -21,7 +21,7 @@
                         <a href="index.html" class="logo__link">
                             <div class="logo__img img">
                                 <picture>
-                                  <source srcset="img/logo.avif" type="image/avif">
+                                  <!-- <source srcset="img/logo.avif" type="image/avif"> -->
                                   <source srcset="img/logo.webp" type="image/webp">
                                   <img loading="lazy" src="img/logo.jpg" class="image" alt="Логотип ООО ОВС-ГРУПП">
                                 </picture>

@@ -88,7 +88,7 @@ address * {
 @font-face {
   font-family: Montserrat;
   font-display: swap;
-  src: url("../fonts/Montserrat-Medium.woff") format("woff"), url("../fonts/Montserrat-Medium.woff2") format("woff2");
+  src: url("assets/fonts/Montserrat-Medium.woff") format("woff"), url("assets/fonts/Montserrat-Medium.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
 }
@@ -96,7 +96,7 @@ address * {
 @font-face {
   font-family: Montserrat;
   font-display: swap;
-  src: url("../fonts/Montserrat-Regular.woff") format("woff"), url("../fonts/Montserrat-Regular.woff2") format("woff2");
+  src: url("assets/fonts/Montserrat-Regular.woff") format("woff"), url("assets/fonts/Montserrat-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
@@ -104,7 +104,7 @@ address * {
 @font-face {
   font-family: Montserrat;
   font-display: swap;
-  src: url("../fonts/Montserrat-SemiBold.woff") format("woff"), url("../fonts/Montserrat-SemiBold.woff2") format("woff2");
+  src: url("assets/fonts/Montserrat-SemiBold.woff") format("woff"), url("assets/fonts/Montserrat-SemiBold.woff2") format("woff2");
   font-weight: 600;
   font-style: normal;
 }
@@ -112,7 +112,7 @@ address * {
 @font-face {
   font-family: Roboto;
   font-display: swap;
-  src: url("../fonts/Roboto-Medium.woff") format("woff"), url("../fonts/Roboto-Medium.woff2") format("woff2");
+  src: url("assets/fonts/Roboto-Medium.woff") format("woff"), url("assets/fonts/Roboto-Medium.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
 }
@@ -120,7 +120,7 @@ address * {
 @font-face {
   font-family: Roboto;
   font-display: swap;
-  src: url("../fonts/Roboto-Regular.woff") format("woff"), url("../fonts/Roboto-Regular.woff2") format("woff2");
+  src: url("assets/fonts/Roboto-Regular.woff") format("woff"), url("assets/fonts/Roboto-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
@@ -897,7 +897,7 @@ address * {
 }
 
 .no-webp .fullscreen {
-  background: url(../img/bg-index.jpg) center 0/cover no-repeat; }
+  background: url(assets/img/bg-index.jpg) center 0/cover no-repeat; }
 
 .fullscreen {
   position: relative;
@@ -1391,7 +1391,7 @@ address * {
   }
 
   .no-webp .about-index__container::after {
-    background: url(../img/bg-dots.png) no-repeat; }
+    background: url(assets/img/bg-dots.png) no-repeat; }
 
   .about-index__container::after {
     position: absolute;
@@ -1410,7 +1410,7 @@ address * {
   }
 
   .no-webp .services-index__container::after {
-    background: url(../img/bg-dots.png) no-repeat; }
+    background: url(assets/img/bg-dots.png) no-repeat; }
 
   .services-index__container::after {
     position: absolute;
@@ -1429,7 +1429,7 @@ address * {
   }
 
   .no-webp .brends-index__container::after {
-    background: url(../img/bg-dots.png) no-repeat; }
+    background: url(assets/img/bg-dots.png) no-repeat; }
 
   .brends-index__container::after {
     position: absolute;
@@ -2138,19 +2138,19 @@ address * {
   }
 }
 
-.webp .fullscreen { background: url(../img/bg-index.webp) center 0/cover no-repeat; }
+.webp .fullscreen { background: url(assets/img/bg-index.webp) center 0/cover no-repeat; }
 
 @media (min-width: 1230px) {
 
-  .webp .about-index__container::after { background: url(../img/bg-dots.webp) no-repeat; }
+  .webp .about-index__container::after { background: url(assets/img/bg-dots.webp) no-repeat; }
 }
 
 @media (min-width: 1230px) {
 
-  .webp .services-index__container::after { background: url(../img/bg-dots.webp) no-repeat; }
+  .webp .services-index__container::after { background: url(assets/img/bg-dots.webp) no-repeat; }
 }
 
 @media (min-width: 1230px) {
 
-  .webp .brends-index__container::after { background: url(../img/bg-dots.webp) no-repeat; }
+  .webp .brends-index__container::after { background: url(assets/img/bg-dots.webp) no-repeat; }
 }

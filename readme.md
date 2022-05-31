@@ -1,1 +1,1 @@
-Ρΰις OVS-Group
+Π΅Π°ΠΉΡ‚ OVS-Group
