@@ -26,7 +26,7 @@ define( 'DB_NAME', 'ovs-group' );
 define( 'DB_USER', 'root' );
 
 /** Пароль к базе данных */
-define( 'DB_PASSWORD', '' );
+define( 'DB_PASSWORD', 'Swa26tyg' );
 
 /** Имя сервера базы данных */
 define( 'DB_HOST', 'localhost' );
@@ -93,3 +93,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /** Инициализирует переменные WordPress и подключает файлы. */
 require_once ABSPATH . 'wp-settings.php';
+
+if(is_admin()) {
+    add_filter('filesystem_method', create_function('$a', 'return "direct";' ));
+    define( 'FS_CHMOD_DIR', 0751 );
+}
