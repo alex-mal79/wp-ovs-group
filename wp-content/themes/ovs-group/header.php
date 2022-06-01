@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Главная ОВС-ГРУПП</title>
+    <link rel="shortcut icon" type="image/png" href="<?php echo get_template_directory_uri();?>/favicon.ico"/>
     <link rel="stylesheet" href="<?php echo get_template_directory_uri();?>/assets/css/swiper.min.css?_v=20220531123418">
     <link rel="stylesheet" href="<?php echo get_template_directory_uri();?>/style.css?_v=20220531123418">
     <script defer src="<?php echo get_template_directory_uri();?>/assets/js/swiper.min.js?_v=20220531123418"></script>
@@ -19,16 +20,35 @@
             <div class="header__container container">
                 <div class="header__wrap">
                     <div class="header__logo logo">
-                        <a href="index.html" class="logo__link">
+                        <?php if(is_front_page()):?>
                             <div class="logo__img img">
                                 <picture>
-                                  <!-- <source srcset="img/logo.avif" type="image/avif"> -->
-                                  <source srcset="img/logo.webp" type="image/webp">
-                                  <img loading="lazy" src="img/logo.jpg" class="image" alt="Логотип ООО ОВС-ГРУПП">
+                                  <source srcset="<?php echo get_template_directory_uri();?>/assets/img/logo.avif" type="image/avif">
+                                  <source srcset="<?php echo get_template_directory_uri();?>/assets/img/logo.webp" type="image/webp">
+                                  <img loading="lazy" src="<?php echo get_template_directory_uri();?>/assets/img/logo.jpg" class="image" alt="Логотип ООО ОВС-ГРУПП">
                                 </picture>
                             </div>
-                            <div class="logo__text">ОВС-ГРУПП</div>
-                        </a>
+                            <div class="logo__text">
+                                <?php if($GLOBALS['ovs_group']['logo_text']):?>
+                                    <?php echo $GLOBALS['ovs_group']['logo_text'];?>
+                                <?php endif;?>
+                            </div>
+                        <?php else:?>
+                            <a href="/" class="logo__link">
+                                <div class="logo__img img">
+                                    <picture>
+                                        <source srcset="assets/img/logo.avif" type="image/avif">
+                                        <source srcset="assets/img/logo.webp" type="image/webp">
+                                        <img loading="lazy" src="assets/img/logo.jpg" class="image" alt="Логотип ООО ОВС-ГРУПП">
+                                    </picture>
+                                </div>
+                                <div class="logo__text">
+                                    <?php if($GLOBALS['ovs_group']['logo_text']):?>
+                                        <?php echo $GLOBALS['ovs_group']['logo_text'];?>
+                                    <?php endif;?>
+                                </div>
+                            </a>
+                        <?php endif;?>
                     </div>
                     <div class="header__menu menu">
                         <nav class="menu__body" data-menu-body data-drop-mainBlock>
@@ -139,7 +159,7 @@
                         </nav>
                     </div>
                     <div class="header__contacts contacts-header" data-da=".menu__body, 768, last">
-                        <a href="tel:+30713028604" class="contacts-header__link">
+                        <a href="tel:tel:<?php echo $GLOBALS['ovs_group']['phone_nomask_main'];?>" class="contacts-header__link">
                             <span class="contacts-header__icon-phone img">
                                 <picture>
                                   <source srcset="img/icons/icon-phone.avif" type="image/avif">
@@ -147,9 +167,11 @@
                                   <img loading="lazy" src="img/icons/icon-phone.png" alt="Иконка телефона">
                                 </picture>
                             </span>
-                            <span class="contacts-header__text">+3 (071) 302-86-04</span>
+                            <span class="contacts-header__text">
+                                <?php echo $GLOBALS['ovs_group']['phone_main'];?>
+                            </span>
                         </a>
-                        <a href="mailto:info@ovs-group.ru" class="contacts-header__link">
+                        <a href="mailto:<?php echo $GLOBALS['ovs_group']['email_main'];?>" class="contacts-header__link">
                             <span class="contacts-header__icon-mail img">
                                 <picture>
                                   <source srcset="img/icons/icon-mail.avif" type="image/avif">
@@ -157,7 +179,9 @@
                                   <img loading="lazy" src="img/icons/icon-mail.png" alt="Иконка телефона">
                                 </picture>
                             </span>
-                            <span class="contacts-header__text">info@ovs-group.ru</span>
+                            <span class="contacts-header__text">
+                                <?php echo $GLOBALS['ovs_group']['email_main'];?>
+                            </span>
                         </a>
                     </div>
                     <div class="header__bureger">

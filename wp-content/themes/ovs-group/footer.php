@@ -125,14 +125,19 @@
                                     </div>
                                     <div class="address__wrap">
                                         <div class="address__inner">
-                                            <a href="tel:+30713028604" class="address__link address__link--mr">
-                                                +3 (071) 302-86-04
+                                            <a href="tel:<?php echo $GLOBALS['ovs_group']['phone_nomask_main'];?>" class="address__link address__link--mr">
+                                                <?php echo $GLOBALS['ovs_group']['phone_main'];?>
                                             </a>
-                                            <a href="tel:+79525840833" class="address__link">
-                                                +7 (952) 584-08-33
-                                            </a>
+                                            <?php if($GLOBALS['ovs_group']['phone_additional']):?>
+                                                <a href="tel:<?php echo $GLOBALS['ovs_group']['phone_nomask_additional'];?>" class="address__link">
+                                                    <?php echo $GLOBALS['ovs_group']['phone_additional'];?>
+                                                </a>
+                                            <?php endif;?>
                                         </div>
-                                        <p class="address__descr">Режим работы: Пн-Пт - 9:00- 17:00</p>
+                                        <p class="address__descr">
+                                            Режим работы:&nbsp;
+                                            <?php echo $GLOBALS['ovs_group']['work_time'];?>
+                                        </p>
                                     </div>
                                 </div>
                                 <div class="address__item">
@@ -142,8 +147,8 @@
                                     <div class="address__wrap">
                                         <p class="address__descr">Email:</p>
                                         <div class="address__inner">
-                                            <a href="mailto:info@ovs-group.ru" class="address__link">
-                                                info@ovs-group.ru
+                                            <a href="mailto:<?php echo $GLOBALS['ovs_group']['email_main'];?>" class="address__link">
+                                                <?php echo $GLOBALS['ovs_group']['email_main'];?>
                                             </a>
                                         </div>
                                     </div>
@@ -155,7 +160,7 @@
                                     <div class="address__wrap">
                                         <div class="address__inner">
                                             <a href="##" class="address__link address__link--mw">
-                                                83062 ДНР г. Донецк пр. Ленинский д. 4а оф. 305
+                                                <?php echo $GLOBALS['ovs_group']['address'];?>
                                             </a>
                                         </div>
                                     </div>
@@ -168,15 +173,42 @@
             <div class="footer__bottom bottom-footer">
                 <div class="bottom-footer__container container">
                     <div class="bottom-footer__logo logo">
-                        <a href="index.html" class="logo__link">
+                    <?php if(is_front_page()):?>
                             <div class="logo__img img">
-                                <img src="img/logo.png" alt="Логотип ООО ОВС-ГРУПП">
+                                <picture>
+                                  <source srcset="<?php echo get_template_directory_uri();?>/assets/img/logo.avif" type="image/avif">
+                                  <source srcset="<?php echo get_template_directory_uri();?>/assets/img/logo.webp" type="image/webp">
+                                  <img loading="lazy" src="<?php echo get_template_directory_uri();?>/assets/img/logo.jpg" class="image" alt="Логотип ООО ОВС-ГРУПП">
+                                </picture>
                             </div>
-                            <div class="logo__text">ОВС-ГРУПП</div>
-                        </a>
+                            <div class="logo__text">
+                                <?php if($GLOBALS['ovs_group']['logo_text']):?>
+                                    <?php echo $GLOBALS['ovs_group']['logo_text'];?>
+                                <?php endif;?>
+                            </div>
+                        <?php else:?>
+                            <a href="index.html" class="logo__link">
+                                <div class="logo__img img">
+                                    <picture>
+                                        <source srcset="assets/img/logo.avif" type="image/avif">
+                                        <source srcset="assets/img/logo.webp" type="image/webp">
+                                        <img loading="lazy" src="assets/img/logo.jpg" class="image" alt="Логотип ООО ОВС-ГРУПП">
+                                    </picture>
+                                </div>
+                                <div class="logo__text">
+                                    <?php if($GLOBALS['ovs_group']['logo_text']):?>
+                                        <?php echo $GLOBALS['ovs_group']['logo_text'];?>
+                                    <?php endif;?>
+                                </div>
+                            </a>
+                        <?php endif;?>
                     </div>
                     <div class="bottom-footer__copy copy-footer">
-                        <p class="copy-footer__year">2021 - 2022 &copy; ОВС-ГРУПП</p>
+                        <p class="copy-footer__year">
+                            2021-<?php echo date('Y');?> &nbsp;&nbsp;
+                            &copy;  &nbsp;&nbsp;
+                            <?php echo $GLOBALS['ovs_group']['main_name'];?>
+                        </p>
                         <p class="copy-footer__guard">Все права защищены.</p>
                     </div>
                 </div>

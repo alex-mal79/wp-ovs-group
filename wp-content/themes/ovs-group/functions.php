@@ -20,4 +20,48 @@
         wp_dequeue_style('wp-block-library'); // remove wp-block-library-css
         wp_dequeue_style('global-styles'); // remove global-styles-inline-css
     }
+
+    // Меню
+    add_action('after_setup_theme', 'theme_support');
+    function theme_support(){
+        register_nav_menu('menu_main_header', 'Меню в шапке');
+        register_nav_menu('menu_main_footer', 'Меню в подвале');
+    }
+
+    // Подключение плагина Carbon Fields
+    add_action('after_setup_theme', 'crb_load');
+    function crb_load() {
+        require_once('includes/carbon-fields/vendor/autoload.php');
+        \Carbon_Fields\Carbon_Fields::boot();
+    }
+
+    add_action('carbon_fields_register_fields', 'register_carbon_fields');
+    function register_carbon_fields(){
+        require_once('includes/carbon-fields-options/theme-options.php');
+    }
+
+    // Глобальные переменные для настроек сайта
+    add_action('init', 'create_global_variable');
+    function create_global_variable(){
+        global $ovs_group;
+        $ovs_group = [
+            //Общие настройки
+            'main_name' => carbon_get_theme_option('site_main_name'),
+            'work_time' => carbon_get_theme_option('site_work_time'),
+            //Логотип
+            'logo_text' => carbon_get_theme_option('site_logo_text'),
+            'logo' => wp_get_attachment_image_url(carbon_get_theme_option('site_logo')),
+            //Контакты
+            'address' => carbon_get_theme_option('site_address'),
+            'icon_address' => wp_get_attachment_image_url(carbon_get_theme_option('site_icon_address')),
+            'email_main' => carbon_get_theme_option('site_email_main'),
+            'icon_email' => wp_get_attachment_image_url(carbon_get_theme_option('site_icon_email')),
+            'phone_main' => carbon_get_theme_option('site_phone_main'),
+            'phone_nomask_main' => carbon_get_theme_option('site_phone_nomask_main'),
+            'phone_additional' => carbon_get_theme_option('site_phone_additional'),
+            'phone_nomask_additional' => carbon_get_theme_option('site_phone_nomask_additional'),
+            'icon_phone_header' => wp_get_attachment_image_url(carbon_get_theme_option('site_icon_phone_header')),
+            'icon_phone_footer' => wp_get_attachment_image_url(carbon_get_theme_option('site_icon_phone_footer')),
+        ]; 
+    } 
 ?>
