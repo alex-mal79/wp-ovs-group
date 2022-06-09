@@ -17,15 +17,28 @@
     <div class="site-container">
 
         <header class="header" data-scroll="150">
+            <?php 
+                $site_img_logo =  carbon_get_theme_option('site_logo');
+                $site_img_src_logo =  wp_get_attachment_image_url($site_img_logo, 'full');
+                $site_img_src_webp_logo = convertToWebpSrc($site_img_src_logo);
+
+                $icon_phone_header =  carbon_get_theme_option('site_icon_phone_header');
+                $icon_phone_header_src =  wp_get_attachment_image_url($icon_phone_header, 'full');
+                $icon_phone_header_src_webp = convertToWebpSrc($icon_phone_header_src);
+
+                $icon_email_header =  carbon_get_theme_option('site_icon_email_header');
+                $icon_email_header_src =  wp_get_attachment_image_url($icon_email_header, 'full');
+                $icon_email_header_src_webp = convertToWebpSrc($icon_email_header_src);
+            ?>
             <div class="header__container container">
                 <div class="header__wrap">
                     <div class="header__logo logo">
                         <?php if(is_front_page()):?>
                             <div class="logo__img img">
                                 <picture>
-                                  <source srcset="<?php echo get_template_directory_uri();?>/assets/img/logo.avif" type="image/avif">
-                                  <source srcset="<?php echo get_template_directory_uri();?>/assets/img/logo.webp" type="image/webp">
-                                  <img loading="lazy" src="<?php echo get_template_directory_uri();?>/assets/img/logo.jpg" class="image" alt="Логотип ООО ОВС-ГРУПП">
+                                  <!-- <source srcset="logo.avif" type="image/avif"> -->
+                                  <source srcset="<?php echo $site_img_src_webp_logo;?>" type="image/webp">
+                                  <img loading="lazy" src="<?php echo $site_img_src_logo;?>" class="image" alt="Логотип ООО ОВС-ГРУПП">
                                 </picture>
                             </div>
                             <div class="logo__text">
@@ -37,9 +50,9 @@
                             <a href="/" class="logo__link">
                                 <div class="logo__img img">
                                     <picture>
-                                        <source srcset="assets/img/logo.avif" type="image/avif">
-                                        <source srcset="assets/img/logo.webp" type="image/webp">
-                                        <img loading="lazy" src="assets/img/logo.jpg" class="image" alt="Логотип ООО ОВС-ГРУПП">
+                                        <!-- <source srcset="logo.avif" type="image/avif"> -->
+                                        <source srcset="<?php echo $site_img_src_webp_logo;?>" type="image/webp">
+                                        <img loading="lazy" src="<?php echo $site_img_src_logo;?>" class="image" alt="Логотип ООО ОВС-ГРУПП">
                                     </picture>
                                 </div>
                                 <div class="logo__text">
@@ -54,7 +67,7 @@
                         <nav class="menu__body" data-menu-body data-drop-mainBlock>
                             <ul class="menu__list">
                                 <li class="menu__item">
-                                    <a href="##" class="menu__link">
+                                    <a href="http://ovs-group.local/about" class="menu__link">
                                         <span class="menu__text">О компании</span>
                                     </a>
                                 </li>
@@ -63,9 +76,9 @@
                                         <span class="menu__text">Услуги</span>
                                         <span class="menu__arrow img">
                                             <picture>
-                                              <source srcset="img/icons/arrow-menu.avif" type="image/avif">
-                                              <source srcset="img/icons/arrow-menu.webp" type="image/webp">
-                                              <img loading="lazy" src="img/icons/arrow-menu.png" alt="Стрелка меню">
+                                              <source srcset="<?php echo get_template_directory_uri(); ?>/assets/img/icons/arrow-menu.avif" type="image/avif">
+                                              <source srcset="<?php echo get_template_directory_uri(); ?>/assets/img/icons/arrow-menu.webp" type="image/webp">
+                                              <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/img/icons/arrow-menu.png" alt="Стрелка меню">
                                             </picture>
                                         </span>
                                     </button>
@@ -74,7 +87,7 @@
                                             <li class="dropdown__item">
                                                 <a href="##" class="dropdown__link">
                                                     <span class="dropdown__icon img">
-                                                        <img loading="lazy" src="img/icons/arrow.svg" alt="Стрелка меню">
+                                                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/img/icons/arrow.svg" alt="Стрелка меню">
                                                     </span>
                                                     <span class="dropdown__text">
                                                         Техническое обслуживание оборудования АЗС
@@ -84,7 +97,7 @@
                                             <li class="dropdown__item">
                                                 <a href="##" class="dropdown__link">
                                                     <span class="dropdown__icon img">
-                                                        <img loading="lazy" src="img/icons/arrow.svg" alt="Стрелка меню">
+                                                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/img/icons/arrow.svg" alt="Стрелка меню">
                                                     </span>
                                                     <span class="dropdown__text">
                                                         Ремонт и замена оборудования АЗС
@@ -94,7 +107,7 @@
                                             <li class="dropdown__item">
                                                 <a href="##" class="dropdown__link">
                                                     <span class="dropdown__icon img">
-                                                        <img loading="lazy" src="img/icons/arrow.svg" alt="Стрелка меню">
+                                                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/img/icons/arrow.svg" alt="Стрелка меню">
                                                     </span>
                                                     <span class="dropdown__text">
                                                         Монтаж пластиковых и металло-трубопроводов
@@ -104,7 +117,7 @@
                                             <li class="dropdown__item">
                                                 <a href="##" class="dropdown__link">
                                                     <span class="dropdown__icon img">
-                                                        <img loading="lazy" src="img/icons/arrow.svg" alt="Стрелка меню">
+                                                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/img/icons/arrow.svg" alt="Стрелка меню">
                                                     </span>
                                                     <span class="dropdown__text">
                                                         Внедрение автоматизированных систем управления АЗС
@@ -119,9 +132,9 @@
                                         <span class="menu__text">Каталог</span>
                                         <span class="menu__arrow img">
                                             <picture>
-                                              <source srcset="img/icons/arrow-menu.avif" type="image/avif">
-                                              <source srcset="img/icons/arrow-menu.webp" type="image/webp">
-                                              <img loading="lazy" src="img/icons/arrow-menu.png" alt="Стрелка меню">
+                                              <source srcset="<?php echo get_template_directory_uri(); ?>/assets/img/icons/arrow-menu.avif" type="image/avif">
+                                              <source srcset="<?php echo get_template_directory_uri(); ?>/assets/img/icons/arrow-menu.webp" type="image/webp">
+                                              <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/img/icons/arrow-menu.png" alt="Стрелка меню">
                                             </picture>
                                         </span>
                                     </button>
@@ -130,7 +143,7 @@
                                             <li class="dropdown__item">
                                                 <a href="##" class="dropdown__link">
                                                     <span class="dropdown__icon img">
-                                                        <img loading="lazy" src="img/icons/arrow.svg" alt="Стрелка меню">
+                                                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/img/icons/arrow.svg" alt="Стрелка меню">
                                                     </span>
                                                     <span class="dropdown__text">
                                                         Метрология
@@ -140,7 +153,7 @@
                                             <li class="dropdown__item">
                                                 <a href="##" class="dropdown__link">
                                                     <span class="dropdown__icon img">
-                                                        <img loading="lazy" src="img/icons/arrow.svg" alt="Стрелка меню">
+                                                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/img/icons/arrow.svg" alt="Стрелка меню">
                                                     </span>
                                                     <span class="dropdown__text">
                                                         Топливо-раздаточные краны
@@ -162,9 +175,9 @@
                         <a href="tel:tel:<?php echo $GLOBALS['ovs_group']['phone_nomask_main'];?>" class="contacts-header__link">
                             <span class="contacts-header__icon-phone img">
                                 <picture>
-                                  <source srcset="img/icons/icon-phone.avif" type="image/avif">
-                                  <source srcset="img/icons/icon-phone.webp" type="image/webp">
-                                  <img loading="lazy" src="img/icons/icon-phone.png" alt="Иконка телефона">
+                                  <!-- <source srcset="icon-phone.avif" type="image/avif"> -->
+                                  <source srcset="<?php echo $icon_phone_header_src_webp;?>" type="image/webp">
+                                  <img loading="lazy" src="<?php echo $icon_phone_header_src;?>" alt="Иконка телефона">
                                 </picture>
                             </span>
                             <span class="contacts-header__text">
@@ -174,9 +187,9 @@
                         <a href="mailto:<?php echo $GLOBALS['ovs_group']['email_main'];?>" class="contacts-header__link">
                             <span class="contacts-header__icon-mail img">
                                 <picture>
-                                  <source srcset="img/icons/icon-mail.avif" type="image/avif">
-                                  <source srcset="img/icons/icon-mail.webp" type="image/webp">
-                                  <img loading="lazy" src="img/icons/icon-mail.png" alt="Иконка телефона">
+                                  <!-- <source srcset="icon-mail.avif" type="image/avif"> -->
+                                  <source srcset="<?php echo $icon_email_header_src_webp;?>" type="image/webp">
+                                  <img loading="lazy" src="<?php echo $icon_email_header_src;?>" alt="Иконка телефона">
                                 </picture>
                             </span>
                             <span class="contacts-header__text">

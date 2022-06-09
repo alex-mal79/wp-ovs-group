@@ -22,7 +22,10 @@
             Field::make('text', 'site_address', 'Адрес'),
             Field::make('image', 'site_icon_address', 'Иконка адреса:'),
             Field::make('text', 'site_email_main', 'Основной Email'),
-            Field::make('image', 'site_icon_email', 'Иконка Email:'),
+            Field::make('image', 'site_icon_email_header', 'Иконка Email (шапка):')
+            -> set_width(50),
+            Field::make('image', 'site_icon_email_footer', 'Иконка Email (подвал):')
+            -> set_width(50),
             Field::make('text', 'site_phone_main', 'Основной телефон')
             -> set_width(50),
             Field::make('text', 'site_phone_nomask_main', 'Основной телефон в формате +79521112233')

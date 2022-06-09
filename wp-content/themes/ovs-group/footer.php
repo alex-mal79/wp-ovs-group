@@ -1,4 +1,4 @@
-<footer class="footer">
+        <footer class="footer">
             <section class="footer__top">
                 <div class="top-footer container">
                     <ul class="top-footer__list">
@@ -9,7 +9,7 @@
                                     <li class="menu-footer__item">
                                         <a href="##" class="menu-footer__link">
                                             <div class="menu-footer__icon img">
-                                                <img loading="lazy" src="img/icons/arrow.svg" alt="Стрелка меню">
+                                                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/img/icons/arrow.svg" alt="Стрелка меню">
                                             </div>
                                             <span class="menu-footer__text">
                                                 О компании
@@ -19,7 +19,7 @@
                                     <li class="menu-footer__item">
                                         <a href="##" class="menu-footer__link">
                                             <div class="menu-footer__icon img">
-                                                <img loading="lazy" src="img/icons/arrow.svg" alt="Стрелка меню">
+                                                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/img/icons/arrow.svg" alt="Стрелка меню">
                                             </div>
                                             <span class="menu-footer__text">
                                                 Контакты
@@ -43,7 +43,7 @@
                                                 <li class="menu-footer__item">
                                                     <a href="##" class="menu-footer__link">
                                                         <div class="menu-footer__icon img">
-                                                            <img loading="lazy" src="img/icons/arrow.svg" alt="Стрелка меню">
+                                                            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/img/icons/arrow.svg" alt="Стрелка меню">
                                                         </div>
                                                         <span class="menu-footer__text">
                                                             Техническое обслуживание оборудования АЗС
@@ -53,7 +53,7 @@
                                                 <li class="menu-footer__item">
                                                     <a href="##" class="menu-footer__link">
                                                         <div class="menu-footer__icon img">
-                                                            <img loading="lazy" src="img/icons/arrow.svg" alt="Стрелка меню">
+                                                            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/img/icons/arrow.svg" alt="Стрелка меню">
                                                         </div>
                                                         <span class="menu-footer__text">
                                                             Ремонт и замена оборудования АЗС
@@ -63,7 +63,7 @@
                                                 <li class="menu-footer__item">
                                                     <a href="##" class="menu-footer__link">
                                                         <div class="menu-footer__icon img">
-                                                            <img loading="lazy" src="img/icons/arrow.svg" alt="Стрелка меню">
+                                                            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/img/icons/arrow.svg" alt="Стрелка меню">
                                                         </div>
                                                         <span class="menu-footer__text">
                                                             Монтаж пластиковых и металло-трубопроводов
@@ -73,7 +73,7 @@
                                                 <li class="menu-footer__item">
                                                     <a href="##" class="menu-footer__link">
                                                         <div class="menu-footer__icon img">
-                                                            <img loading="lazy" src="img/icons/arrow.svg" alt="Стрелка меню">
+                                                            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/img/icons/arrow.svg" alt="Стрелка меню">
                                                         </div>
                                                         <span class="menu-footer__text">
                                                             Внедрение автоматизированных систем управления АЗС
@@ -91,7 +91,7 @@
                                                 <li class="menu-footer__item">
                                                     <a href="##" class="menu-footer__link">
                                                         <div class="menu-footer__icon img">
-                                                            <img loading="lazy" src="img/icons/arrow.svg" alt="Стрелка меню">
+                                                            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/img/icons/arrow.svg" alt="Стрелка меню">
                                                         </div>
                                                         <span class="menu-footer__text">
                                                             Метрология
@@ -101,7 +101,7 @@
                                                 <li class="menu-footer__item">
                                                     <a href="##" class="menu-footer__link">
                                                         <div class="menu-footer__icon img">
-                                                            <img loading="lazy" src="img/icons/arrow.svg" alt="Стрелка меню">
+                                                            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/img/icons/arrow.svg" alt="Стрелка меню">
                                                         </div>
                                                         <span class="menu-footer__text">
                                                             Топливо-раздаточный краны
@@ -121,7 +121,7 @@
                             <adress class="footer-address__address address">
                                 <div class="address__item">
                                     <div class="address__icons img">
-                                        <img src="img/icons/phone.png" alt="Иконка телефона">
+                                        <img src="<?php echo $GLOBALS['ovs_group']['icon_phone_footer'];?>" alt="Иконка телефона">
                                     </div>
                                     <div class="address__wrap">
                                         <div class="address__inner">
@@ -142,7 +142,7 @@
                                 </div>
                                 <div class="address__item">
                                     <div class="address__icons img">
-                                        <img src="img/icons/mail.png" alt="Иконка Email">
+                                        <img src="<?php echo $GLOBALS['ovs_group']['icon_email_footer'];?>" alt="Иконка Email">
                                     </div>
                                     <div class="address__wrap">
                                         <p class="address__descr">Email:</p>
@@ -155,7 +155,7 @@
                                 </div>
                                 <div class="address__item">
                                     <div class="address__icons img">
-                                        <img src="img/icons/location.png" alt="Иконка Email">
+                                        <img src="<?php echo $GLOBALS['ovs_group']['icon_address'];?>" alt="Иконка address">
                                     </div>
                                     <div class="address__wrap">
                                         <div class="address__inner">
@@ -173,12 +173,17 @@
             <div class="footer__bottom bottom-footer">
                 <div class="bottom-footer__container container">
                     <div class="bottom-footer__logo logo">
+                    <?php 
+                        $site_img_logo =  carbon_get_theme_option('site_logo');
+                        $site_img_src_logo =  wp_get_attachment_image_url($site_img_logo, 'full');
+                        $site_img_src_webp_logo = convertToWebpSrc($site_img_src_logo);
+                    ?>
                     <?php if(is_front_page()):?>
                             <div class="logo__img img">
                                 <picture>
-                                  <source srcset="<?php echo get_template_directory_uri();?>/assets/img/logo.avif" type="image/avif">
-                                  <source srcset="<?php echo get_template_directory_uri();?>/assets/img/logo.webp" type="image/webp">
-                                  <img loading="lazy" src="<?php echo get_template_directory_uri();?>/assets/img/logo.jpg" class="image" alt="Логотип ООО ОВС-ГРУПП">
+                                    <!-- <source srcset="logo.avif" type="image/avif"> -->
+                                    <source srcset="<?php echo $site_img_src_webp_logo;?>" type="image/webp">
+                                    <img loading="lazy" src="<?php echo $site_img_src_logo;?>" class="image" alt="Логотип ООО ОВС-ГРУПП">
                                 </picture>
                             </div>
                             <div class="logo__text">
@@ -190,9 +195,9 @@
                             <a href="index.html" class="logo__link">
                                 <div class="logo__img img">
                                     <picture>
-                                        <source srcset="assets/img/logo.avif" type="image/avif">
-                                        <source srcset="assets/img/logo.webp" type="image/webp">
-                                        <img loading="lazy" src="assets/img/logo.jpg" class="image" alt="Логотип ООО ОВС-ГРУПП">
+                                        <!-- <source srcset="logo.avif" type="image/avif"> -->
+                                        <source srcset="<?php echo $site_img_src_webp_logo;?>" type="image/webp">
+                                        <img loading="lazy" src="<?php echo $site_img_src_logo;?>" class="image" alt="Логотип ООО ОВС-ГРУПП">
                                     </picture>
                                 </div>
                                 <div class="logo__text">

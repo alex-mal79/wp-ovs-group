@@ -3,6 +3,7 @@
 Template Name: Главная
 */
 ?>
+<?php $page_id = get_the_ID()?>
 <?php get_header();?>
 
 <main class="main">
@@ -172,18 +173,18 @@ Template Name: Главная
                         <button class="fullscreen__button-prev controls-fullscreen__button-prev btn-reset">
                             <div class="controls-fullscreen__icon-prev img">
                                 <picture>
-                                    <source srcset="img/icons/icon-prev.avif" type="image/avif">
-                                    <source srcset="img/icons/icon-prev.webp" type="image/webp">
-                                    <img loading="lazy" src="img/icons/icon-prev.png" alt="Стрелка предыдущий слайд">
+                                    <source srcset="<?php echo get_template_directory_uri(); ?>/assets/img/icons/icon-prev.avif" type="image/avif">
+                                    <source srcset="<?php echo get_template_directory_uri(); ?>/assets/img/icons/icon-prev.webp" type="image/webp">
+                                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/img/icons/icon-prev.png" alt="Стрелка предыдущий слайд">
                                 </picture>
                             </div>
                         </button>
                         <button class="fullscreen__button-next controls-fullscreen__button-next btn-reset">
                             <div class="controls-fullscreen__icon-next img">
                                 <picture>
-                                    <source srcset="img/icons/icon-next.avif" type="image/avif">
-                                    <source srcset="img/icons/icon-next.webp" type="image/webp">
-                                    <img loading="lazy" src="img/icons/icon-next.png" alt="Стрелка следущий слайд">
+                                    <source srcset="<?php echo get_template_directory_uri(); ?>/assets/img/icons/icon-next.avif" type="image/avif">
+                                    <source srcset="<?php echo get_template_directory_uri(); ?>/assets/img/icons/icon-next.webp" type="image/webp">
+                                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/img/icons/icon-next.png" alt="Стрелка следущий слайд">
                                     </picture>
                             </div>
                         </button>
@@ -195,17 +196,24 @@ Template Name: Главная
 
     <section class="about-index">
         <div class="about-index__container container">
-            <h1 class="about-index__title title">О компании</h1>
+            <?php
+                $index_about_img =  carbon_get_post_meta($page_id, 'index_about_img');
+                $index_about_img_src =  wp_get_attachment_image_url($index_about_img, 'full');
+                $index_about_img_src_webp = convertToWebpSrc($index_about_img_src);
+            ?>
+            <h1 class="about-index__title title">
+                <?php echo carbon_get_post_meta($page_id, 'index_about_title');?>
+            </h1>
             <div class="about-index__wrap">
                 <div class="about-index__content">
                     <div class="about-index__text">
-                        <p>
+                        <!-- <p>
                             Морковь Лорем ипсум, экологический томатный суп. Недорогой основной, ни программное обеспечение, также нет, я действительно ненавижу футбол. Но если быть честным. Функционал и стрелы, лук оранжевого цвета. И адрес электронной почты или, улучшите производительность, шпионя за кем-то.
                         </p>
                         <p>
                             Обычно пользователи профилируют интересный элемент расписания уже сейчас. Просто футбол, массовое время фристайла. Великая бедность, но бедность. Не смотрите на мультфильмы о бюджетных беспроводных наушниках.
-                        </p>
-
+                        </p> -->
+                        <?php echo carbon_get_post_meta($page_id, 'index_about_text');?>
                     </div>
                     <a href="##" class="about-index__button button-more">
                         Подробнее
@@ -214,9 +222,9 @@ Template Name: Главная
                 <div class="about-index__media">
                     <div class="about-index__img img">
                         <picture>
-                            <source srcset="img/about/about-1.avif" type="image/avif">
-                            <source srcset="img/about/about-1.webp" type="image/webp">
-                            <img loading="lazy" src="img/about/about-1.jpg" alt="about">
+                            <!-- <source srcset="about-1.avif" type="image/avif"> -->
+                            <source srcset="<?php echo $index_about_img_src_webp?>" type="image/webp">
+                            <img loading="lazy" src="<?php echo $index_about_img_src?>" alt="about">
                             </picture>
                     </div>
                 </div>
@@ -226,7 +234,9 @@ Template Name: Главная
 
     <section class="services-index">
         <div class="services-index__container container">
-            <h1 class="services-index__title title">Наши услуги</h1>
+            <h1 class="services-index__title title">
+                <?php echo carbon_get_post_meta($page_id, 'index_services_title');?>
+            </h1>
             <ul class="services-index__list">
                 <!-- карточка -->
                 <li class="services-index__item">
@@ -242,9 +252,9 @@ Template Name: Главная
                         </div>
                         <div class="cart-services__icons img">
                             <picture>
-                                <source srcset="img/icons/rhomb.avif" type="image/avif">
-                                <source srcset="img/icons/rhomb.webp" type="image/webp">
-                                <img loading="lazy" src="img/icons/rhomb.png" alt="icon rhomb">
+                                <source srcset="<?php echo get_template_directory_uri(); ?>/assets/img/icons/rhomb.avif" type="image/avif">
+                                <source srcset="<?php echo get_template_directory_uri(); ?>/assets/img/icons/rhomb.webp" type="image/webp">
+                                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/img/icons/rhomb.png" alt="icon rhomb">
                             </picture>
                         </div>
                         <h2 class="cart-services__title">
@@ -254,9 +264,9 @@ Template Name: Главная
                             <p class="cart-services__text">Подробнее</p>
                             <div class="cart-services__arrow img">
                                 <picture>
-                                    <source srcset="img/icons/arrow-cart.avif" type="image/avif">
-                                    <source srcset="img/icons/arrow-cart.webp" type="image/webp">
-                                    <img loading="lazy" src="img/icons/arrow-cart.png" alt="icon arrow">
+                                    <source srcset="<?php echo get_template_directory_uri(); ?>/assets/img/icons/arrow-cart.avif" type="image/avif">
+                                    <source srcset="<?php echo get_template_directory_uri(); ?>/assets/img/icons/arrow-cart.webp" type="image/webp">
+                                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/img/icons/arrow-cart.png" alt="icon arrow">
                                 </picture>
                             </div>
                         </a>
@@ -277,9 +287,9 @@ Template Name: Главная
                         </div>
                         <div class="cart-services__icons img">
                             <picture>
-                                <source srcset="img/icons/rhomb.avif" type="image/avif">
-                                <source srcset="img/icons/rhomb.webp" type="image/webp">
-                                <img loading="lazy" src="img/icons/rhomb.png" alt="icon rhomb">
+                                <source srcset="<?php echo get_template_directory_uri(); ?>/assets/img/icons/rhomb.avif" type="image/avif">
+                                <source srcset="<?php echo get_template_directory_uri(); ?>/assets/img/icons/rhomb.webp" type="image/webp">
+                                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/img/icons/rhomb.png" alt="icon rhomb">
                             </picture>
                         </div>
                         <h2 class="cart-services__title">
@@ -289,9 +299,9 @@ Template Name: Главная
                             <p class="cart-services__text">Подробнее</p>
                             <div class="cart-services__arrow img">
                                 <picture>
-                                    <source srcset="img/icons/arrow-cart.avif" type="image/avif">
-                                    <source srcset="img/icons/arrow-cart.webp" type="image/webp">
-                                    <img loading="lazy" src="img/icons/arrow-cart.png" alt="icon arrow">
+                                    <source srcset="<?php echo get_template_directory_uri(); ?>/assets/img/icons/arrow-cart.avif" type="image/avif">
+                                    <source srcset="<?php echo get_template_directory_uri(); ?>/assets/img/icons/arrow-cart.webp" type="image/webp">
+                                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/img/icons/arrow-cart.png" alt="icon arrow">
                                 </picture>
                             </div>
                         </a>
@@ -310,9 +320,9 @@ Template Name: Главная
                         </div>
                         <div class="cart-services__icons img">
                             <picture>
-                                <source srcset="img/icons/rhomb.avif" type="image/avif">
-                                <source srcset="img/icons/rhomb.webp" type="image/webp">
-                                <img loading="lazy" src="img/icons/rhomb.png" alt="icon rhomb">
+                                <source srcset="<?php echo get_template_directory_uri(); ?>/assets/img/icons/rhomb.avif" type="image/avif">
+                                <source srcset="<?php echo get_template_directory_uri(); ?>/assets/img/icons/rhomb.webp" type="image/webp">
+                                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/img/icons/rhomb.png" alt="icon rhomb">
                             </picture>
                         </div>
                         <h2 class="cart-services__title">
@@ -322,9 +332,9 @@ Template Name: Главная
                             <p class="cart-services__text">Подробнее</p>
                             <div class="cart-services__arrow img">
                                 <picture>
-                                    <source srcset="img/icons/arrow-cart.avif" type="image/avif">
-                                    <source srcset="img/icons/arrow-cart.webp" type="image/webp">
-                                    <img loading="lazy" src="img/icons/arrow-cart.png" alt="icon arrow">
+                                    <source srcset="<?php echo get_template_directory_uri(); ?>/assets/img/icons/arrow-cart.avif" type="image/avif">
+                                    <source srcset="<?php echo get_template_directory_uri(); ?>/assets/img/icons/arrow-cart.webp" type="image/webp">
+                                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/img/icons/arrow-cart.png" alt="icon arrow">
                                 </picture>
                             </div>
                         </a>
@@ -343,9 +353,9 @@ Template Name: Главная
                         </div>
                         <div class="cart-services__icons img">
                             <picture>
-                                <source srcset="img/icons/rhomb.avif" type="image/avif">
-                                <source srcset="img/icons/rhomb.webp" type="image/webp">
-                                <img loading="lazy" src="img/icons/rhomb.png" alt="icon rhomb">
+                                <source srcset="<?php echo get_template_directory_uri(); ?>/assets/img/icons/rhomb.avif" type="image/avif">
+                                <source srcset="<?php echo get_template_directory_uri(); ?>/assets/img/icons/rhomb.webp" type="image/webp">
+                                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/img/icons/rhomb.png" alt="icon rhomb">
                             </picture>
                         </div>
                         <h2 class="cart-services__title">
@@ -355,9 +365,9 @@ Template Name: Главная
                             <p class="cart-services__text">Подробнее</p>
                             <div class="cart-services__arrow img">
                                 <picture>
-                                    <source srcset="img/icons/arrow-cart.avif" type="image/avif">
-                                    <source srcset="img/icons/arrow-cart.webp" type="image/webp">
-                                    <img loading="lazy" src="img/icons/arrow-cart.png" alt="icon arrow">
+                                    <source srcset="<?php echo get_template_directory_uri(); ?>/assets/img/icons/arrow-cart.avif" type="image/avif">
+                                    <source srcset="<?php echo get_template_directory_uri(); ?>/assets/img/icons/arrow-cart.webp" type="image/webp">
+                                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/img/icons/arrow-cart.png" alt="icon arrow">
                                 </picture>
                             </div>
                         </a>
@@ -370,11 +380,13 @@ Template Name: Главная
 
     <section class="brends-index">
         <div class="brends-index__container container">
-            <h1 class="brends-index__title title">Производители</h1>
+            <h1 class="brends-index__title title">
+                <?php echo carbon_get_post_meta($page_id, 'index_brends_title');?>
+            </h1>
             <div class="brends-index__wrap">
                 <div class="brends-index__controls controls-brends">
                     <button class="controls-brends__button-prev btn-reset img">
-                        <img loading="lazy" src="img/icons/prev.png" alt="Кнопка Назад">
+                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/img/icons/prev.png" alt="Кнопка Назад">
                     </button>
                 </div>
                 <div class="brends-index__swiper swiper">
@@ -460,7 +472,7 @@ Template Name: Главная
                 </div>
                 <div class="brends-index__controls controls-brends">
                     <button class="controls-brends__button-next btn-reset img">
-                        <img loading="lazy" src="img/icons/next.png" alt="Кнопка Назад">
+                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/img/icons/next.png" alt="Кнопка Назад">
                     </button>
                 </div>
             </div>
